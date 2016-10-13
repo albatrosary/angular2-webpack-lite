@@ -3,6 +3,13 @@ let path = require('path');
 let webpack = require('webpack');
 let ngtools = require('@ngtools/webpack');
 
+let HtmlWebpackPlugin = require('html-webpack-plugin');
+let ExtractTextPlugin = require('extract-text-webpack-plugin');
+let CopyWebpackPlugin = require('copy-webpack-plugin');
+
+let helpers = require('./helpers');
+
+
 module.exports = {
   entry: {
     'polyfills': './src/polyfills.ts',
@@ -20,11 +27,19 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
-        loader: '@ngtools/webpack',
+        loader: '@ngtools/webpack'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       },
       {
         test: /\.html$/,
-        use: 'raw'
+        loader: 'raw-loader'
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+        loader: 'file?name=images/[name].[hash].[ext]'
       },
       {
         test: /\.css$/,
