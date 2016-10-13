@@ -1,10 +1,13 @@
 'use strict';
 let path = require('path');
+let webpack = require('webpack');
+let ngtools = require('@ngtools/webpack');
 
 module.exports = {
   entry: {
-    'bootstrap': './src/scripts/main.ts',
-    'bootstrap.aot': './src/scripts/main.aot.ts'
+    'polyfills': './src/polyfills.ts',
+    'vendor': './src/vendor.ts',
+    'bootstrap': './src/bootstrap.aot.ts',
   },
 
   output: {
@@ -13,20 +16,37 @@ module.exports = {
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.ts$/,
-        loader: 'ts',
-        query: {
-          configFileName: 'tsconfig.json'
-        }
+        loader: '@ngtools/webpack',
+      },
+      {
+        test: /\.html$/,
+        use: 'raw'
       }
     ]
   },
 
+  plugins: [
+    new ngtools.AotPlugin({
+      tsConfigPath: './',
+      entryModule: './src/main#MainModule'
+    }),
+    // new webpack.ProgressPlugin(),
+    new webpack.ContextReplacementPlugin(
+      // The (\\|\/) piece accounts for path separators in *nix and Windows
+      /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+      path.join(process.cwd(), 'src')
+    )
+  ],
+
   resolve: {
-    root: [ path.join(__dirname, 'src') ],
-    extensions: ['', '.ts', '.js']
+    modules: [
+      'node_modules',
+      path.resolve(__dirname, 'src')
+    ],
+    extensions: ['.ts', '.js']
   },
 
   devtool: false

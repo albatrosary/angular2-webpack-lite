@@ -8,9 +8,11 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": false,
-    "outDir": "bin",
+    "outDir": ".tmp",
     "types": [
-      "es6-shim"
+      "es6-shim",
+      "jasmine",
+      "hammerjs"
     ]
   },
   "exclude": [

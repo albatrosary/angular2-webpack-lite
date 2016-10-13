@@ -4,28 +4,15 @@
     <meta charset="UTF-8">
     <base href="/">
     <title>Angular2 lite Start</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
     <!-- 1. Display the application -->
     <my-app>Loading...</my-app>
     
     <!-- 2. Load libraries -->
-     <!-- Polyfill(s) for older browsers -->
-    <script src="node_modules/core-js/client/shim.min.js"></script>
-
-    <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/reflect-metadata/Reflect.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-    
-    <!-- 3. Configure SystemJS -->
-    <!--<script>
-    System.import('system-config.js')
-      .then(function () {
-        System.import('app');
-      })
-      .catch(console.error.bind(console));
-    </script>-->
-
-    <script src="bootstrap.aot.bundle.js"></script>
+    <script src="polyfills.bundle.js"></script>
+    <script src="vendor.bundle.js"></script>
+    <script src="bootstrap.bundle.js"></script>
   </body>
 </html>

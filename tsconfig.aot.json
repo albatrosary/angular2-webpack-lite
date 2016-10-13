@@ -18,7 +18,12 @@
     "outDir": "./bin",
     "rootDir": "./src",
     "types": [
-      "node"
+      "node",
+      "jasmine",
+      "hammerjs"
+    ],
+    "typeRoots": [
+      "./node_modules/@types"
     ]
   },
   "angularCompilerOptions": {
@@ -26,7 +31,7 @@
   },
   "compileOnSave": false,
   "files": [
-    "src/scripts/main.ts"
+    "src/main.ts"
   ],
   "exclude": [
     "node_modules",
