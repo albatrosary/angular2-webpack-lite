@@ -15,7 +15,7 @@
     "noImplicitReturns": true,
     "noImplicitUseStrict": false,
     "noFallthroughCasesInSwitch": true,
-    "outDir": "./bin",
+    "outDir": "./.tmp",
     "rootDir": "./src",
     "types": [
       "node",
@@ -35,6 +35,7 @@
   ],
   "exclude": [
     "node_modules",
-    "bin"
+    "bin",
+    ".tmp"
   ]
 }

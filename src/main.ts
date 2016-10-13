@@ -4,10 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-// import { MdCardModule } from '@angular2-material/card';
-// import { MdButtonModule } from '@angular2-material/button';
-// import { MdIconModule } from '@angular2-material/icon';
-// import { MdIconRegistry } from '@angular2-material/icon';
+import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './components';
 
@@ -17,7 +14,8 @@ import { AppComponent } from './components';
     BrowserModule,
     CommonModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    MaterialModule.forRoot()
   ],
   declarations: [ AppComponent ],
   bootstrap: [ AppComponent ]

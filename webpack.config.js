@@ -12,7 +12,8 @@ module.exports = {
 
   output: {
     path: './bin',
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.js',
+    sourceMapFilename: '[file].map'
   },
 
   module: {
@@ -24,6 +25,10 @@ module.exports = {
       {
         test: /\.html$/,
         use: 'raw'
+      },
+      {
+        test: /\.css$/,
+        loader: 'raw'
       }
     ]
   },
@@ -49,5 +54,5 @@ module.exports = {
     extensions: ['.ts', '.js']
   },
 
-  devtool: false
+  devtool: "#source-map"
 };
