@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { MaterialModule } from '@angular/material';
-
 import { AppComponent } from './components';
 
 
@@ -14,8 +12,7 @@ import { AppComponent } from './components';
     BrowserModule,
     CommonModule,
     FormsModule,
-    HttpModule,
-    MaterialModule.forRoot()
+    HttpModule
   ],
   declarations: [ AppComponent ],
   bootstrap: [ AppComponent ]

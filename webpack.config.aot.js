@@ -14,7 +14,7 @@ module.exports = {
   entry: {
     'polyfills': './src/polyfills.ts',
     'vendor': './src/vendor.ts',
-    'bootstrap': './src/bootstrap.ts',
+    'bootstrap.aot': './src/bootstrap.aot.ts',
   },
 
   output: {
@@ -27,7 +27,7 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
-        loader: 'ts'
+        loader: '@ngtools/webpack'
       },
       {
         test: /\.json$/,
